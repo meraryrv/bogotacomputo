@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logon.ico">
+    <link rel="stylesheet" href="css/Product.css">
+    <title>Bogotacomputo</title>
+    <script src="js/productos.js"></script>
+</head>
+
+<body>
+
+    <div class="div-img"><img src="images/logo.png" width="130" height="135">
+    </div>
+    <hr>
+    <div id="navega">
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="productos.html">PRODUCTOS</a></li>
+            <li><a href="servicios.html">SERVICIOS</a></li>
+            <li><a href="contact.html">CONTACTO</a></li>
+        </ul>
+    </div>
+
+    <!-- filtros -->
+
+    <button class="botfiltro" id="toggleButton">Filtrar por...</button>
+    <div id="filtro">
+
+        <div id="opciones">
+            <label for="dispo">Dispositivo:</label>
+            <select id="dispo">
+                <option value="todos">Todos</option>
+                <option value="coescritorio">Computador escritorio</option>
+                <option value="cpu">Cpu</option>
+                <option value="monitores">Monitores</option>
+                <option value="laptop">Laptop</option>
+            </select>
+        </div>
+        <div id="opciones">
+            <label for="año">Año:</label>
+            <select id="año">
+                <option value="todos">Todos</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+            </select>
+        </div>
+        <div id="opciones>
+                <label for=" marca">Marca:</label>
+            <select id="marca">
+                <option value="todos">Todos</option>
+                <option value="apple">Apple</option>
+                <option value="samsung">Samsung</option>
+                <option value="lenovo">Lenovo</option>
+                <option value="hp">HP</option>
+            </select>
+        </div>
+        <div id="ingre-precio">
+            <label for="precio">Precio:</label>
+            <input type="range" id="precio" min="300000" max="8000000" step="100000" oninput="updatePriceValue()">
+            <span id="precio-actual">300,000</span>
+        </div>
+        <button class="botfiltro" onclick="filterProducts()">Filtrar</button>
+    </div>
+
+
+    <!-- Cesta de compras -->
+    <button id="botcesta"><img src="images/cesta.png" width="40" height="40"></button>
+    <div id="cart" class="cart">
+        <ul id="cart-items"></ul>
+        <p>Total: <span id="cart-total">$0</span></p>
+        <button id="checkout">Realizar Compra</button>
+    </div>
+
+
+
+    <!-- catalogo -->
+    <div class="catalogo" id="catalogo">
+        <div id="resultado"></div>
+
+        <div class="fila" id="fila">
+            <div class="item" data-dispo="monitores" data-año="2021" data-marca="apple" data-precio="1000000">
+                <div class="contenedor-foto">
+                    <img src="images/compu.jpg" alt="">
+                    <p class="descripcion"> Monitor Mac </p>
+                    <span class="precio">$1.000.000</span>
+                    <p></p>
+                    <button class="add-to-cart"><img src="images/carrito.png"></button>
+                </div>
+            </div>
+            <div class="item" data-dispo="laptop" data-año="2022" data-marca="hp" data-precio="800000">
+                <div class="contenedor-foto">
+                    <img src="images/compu.jpg" alt="">
+                    <p class="descripcion"> Hp Pavilion </p>
+                    <span class="precio">800.000</span>
+                    <p></p>
+                    <button class="add-to-cart"><img src="images/carrito.png"></button>
+                </div>
+            </div>
+            <div class="item" data-dispo="monitores" data-año="2021" data-marca="samsung" data-precio="600000">
+                <div class="contenedor-foto">
+                    <img src="images/compu.jpg" alt="">
+                    <p class="descripcion"> Monitor Samsung </p>
+                    <span class="precio">600.000</span>
+                    <p></p>
+                    <button class="add-to-cart"><img src="images/carrito.png"></button>
+                </div>
+            </div>
+            <div class="item" data-dispo="cpu" data-año="2021" data-marca="hp" data-precio="900000">
+                <div class="contenedor-foto">
+                    <img src="images/compu.jpg" alt="">
+                    <p class="descripcion"> Cpu Hp </p>
+                    <span class="precio">$900.000</span>
+                    <p></p>
+                    <button class="add-to-cart"><img src="images/carrito.png"></button>
+                </div>
+            </div>
+            <div class="item" data-dispo="coescritorio" data-año="2023" data-marca="lenovo" data-precio="2000000">
+                <div class="contenedor-foto">
+                    <img src="images/compu.jpg" alt="">
+                    <p class="descripcion"> Computador escritorio Lenovo </p>
+                    <span class="precio">$2.000.000</span>
+                    <p></p>
+                    <button class="add-to-cart"><img src="images/carrito.png"></button>
+                </div>
+            </div>
+
+            <div class="item" data-dispo="coescritorio" data-año="2021" data-marca="apple" data-precio="5000000">
+                <div class="contenedor-foto">
+                    <img src="images/compu.jpg" alt="">
+                    <p class="descripcion"> Mac </p>
+                    <span class="precio">$5.000.000</span>
+                    <p></p>
+                    <button class="add-to-cart"><img src="images/carrito.png"></button>
+                </div>
+            </div>
+            <div class="item" data-dispo="laptop" data-año="2022" data-marca="samsung" data-precio="1200000">
+                <div class="contenedor-foto">
+                    <img src="images/compu.jpg" alt="">
+                    <p class="descripcion">Notebook Samsung </p>
+                    <span class="precio">$1.200.000</span>
+                    <p></p>
+                    <button class="add-to-cart"><img src="images/carrito.png"></button>
+                </div>
+            </div>
+            <div class="item" data-dispo="laptop" data-año="2023" data-marca="apple" data-precio="6000000">
+                <div class="contenedor-foto">
+                    <img src="images/compu.jpg" alt="">
+                    <p class="descripcion">Macbook </p>
+                    <span class="precio">$6.000.000</span>
+                    <p></p>
+                    <button class="add-to-cart"><img src="images/carrito.png"></button>
+                </div>
+            </div>
+            <div class="item" data-dispo="cpu" data-año="2023" data-marca="hp" data-precio="400000">
+                <div class="contenedor-foto">
+                    <img src="images/compu.jpg" alt="">
+                    <p class="descripcion"> Torre Hp </p>
+                    <span class="precio">$400.000</span>
+                    <p></p>
+                    <button class="add-to-cart"><img src="images/carrito.png"></button>
+                </div>
+            </div>
+            <div class="item" data-dispo="cpu" data-año="2023" data-marca="lenovo" data-precio="700000">
+                <div class="contenedor-foto">
+                    <img src="images/compu.jpg" alt="">
+                    <p class="descripcion"> CPU Lenovo </p>
+                    <span class="precio">$700.000</span>
+                    <p></p>
+                    <button class="add-to-cart"><img src="images/carrito.png"></button>
+                </div>
+            </div>
+
+
+</body>
+
+</html>
