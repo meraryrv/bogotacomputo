@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        // Verificar las credenciales (esto debe ser implementado según tu lógica)
+        // Verificar las credenciales 
         if (verificarCredenciales(username, password)) {
             // Configurar atributos para mostrar en la página de bienvenida
             request.setAttribute("username", username);
